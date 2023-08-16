@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+ <style>
+        *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:"Poppins",sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    min-height:100vh;
+    background-color:#E0BFB8;
+    background-size:cover;
+    background-position:center;
+
+
+}
+
+.wrapper{
+    width:420px;
+    background:transparent;
+    border:2px solid rgba(255 , 255, 255, .2);
+    backdrop-filter:blur(20px);
+    box-shadow:0 0 10px rgba(0, 0, .2);
+    color:#fff;
+    border-radius:10px;
+    padding:30px 40px;
+}
+
+.wrapper h2{
+       font-size:36px;
+       text-align:center;
+       color: 	#C21E56;
+
+}
+
+.wrapper .input-box{
+    position:relative;
+    width:100%;
+    height:50px;
+    margin:30px 0;
+
+    margin:30px 0;
+}
+
+.input-box input{
+    width:100%;
+    height:100%;
+    background:transparent;
+    border:none;
+    outline:none;
+    border:2px solid rgba(255,255,255, .2);
+    border-radius:40px;
+    font-size:16px;
+    color: 	#C21E56;
+    padding:20px 45px 20px 20px;
+}
+.input-box input::placeholder{
+    color:	#C21E56;
+
+
+}
+.input-box i {
+    position:absolute;
+    right:20px;
+    top:50%;
+    transform:translateY(-50%);
+    font-size:20px;
+
+}
+.wrapper .btn{
+    width:100%;
+    height:45px
+    background:#fff;
+    border:none;
+    outline:none;
+    border-radius:40px;
+    box-shadow:0 0 10px rgba(0, 0,0 .1);
+    cursor:pointer;
+    font-size:16px;
+    color:#333;
+    font-weight:600;
+}
+
+ </style>
+<body>
+<div class="wrapper">
+ <h2 class="demo">Register</h2>
+<form method="POST">
+    {% csrf_token %}
+    <div class="input-box">
+    <input type="text" name="username" placeholder="Enter Your Username"><br>
+    </div>
+     <div class="input-box">
+     <input type="text" name="first_name" placeholder="Enter Your first name"><br>
+    </div>
+     <div class="input-box">
+     <input type="text" name="last_name" placeholder="Enter Your last name"><br>
+    </div>
+     <div class="input-box">
+     <input type="email" name="email" placeholder="Enter Your email address"><br>
+    </div>
+     <div class="input-box">
+     <input type="password" name="password" placeholder="Enter Your password"><br>
+     </div>
+     <div class="input-box">
+     <input type="password" name="password1" placeholder="Confirm password"><br>
+     </div>
+
+     <button type="submit" class="btn">Submit</button>
+</div>
+
+</form>
+{% for msg in messages %}
+<h2>{{msg}}</h2>
+{% endfor %}
+</body>
+</html>
